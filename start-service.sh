@@ -4,14 +4,14 @@ cd /home/ec2-user/app/release
 
 # Query the EC2 metadata service for this instance's region
 
-#REGION=`curl -s http://169.254.169.254/latest/dynamic/instanceidentity/document | jq .region -r`
+REGION=`curl -s http://169.254.169.254/latest/dynamic/instanceidentity/document | jq .region -r`
 
-REGION="`wget -q -O http://169.254.169.254/latest/dynamic/instanceidentity/document | jq .region -r`"
+#REGION="`wget -q -O http://169.254.169.254/latest/dynamic/instanceidentity/document | jq .region -r`"
 
 # Query the EC2 metadata service for this instance's instance-id
 
-#export INSTANCE_ID=`curl -s http://169.254.169.254/latest/meta-data/instanceid`
-export INSTANCE_ID="`wget -q -O - http://169.254.169.254/latest/meta-data/instance-id`"
+export INSTANCE_ID=`curl -s http://169.254.169.254/latest/meta-data/instanceid`
+#export INSTANCE_ID="`wget -q -O - http://169.254.169.254/latest/meta-data/instance-id`"
 
 # Query EC2 describeTags method and pull out the CFN Logical ID for this
 instance
