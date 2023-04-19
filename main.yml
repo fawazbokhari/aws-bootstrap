@@ -50,7 +50,7 @@ Resources:
     Type: AWS::EC2::Instance
     CreationPolicy: 
       ResourceSignal:
-        Timeout: PT15M
+        Timeout: PT10M
         Count: 1
     Metadata:
       AWS::CloudFormation::Init:
